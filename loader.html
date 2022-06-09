@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+	
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv = "refresh" content = "3; url = 404.html" />
+	<title>Fileshare Download</title>
+	<link rel="stylesheet" href="./style.css">
+	<!-- www.youtube.com/STech04 -->
+</head>
+<style>
+	*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #333;
+}
+.circle
+{
+    width: 100px;
+    height: 100px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.circle .point
+{
+    width: 9px;
+    height: 9px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    transform: rotate(calc(var(--i)*var(--rot))) translate(-50px) scale(0);
+    animation: animate 0.7s linear infinite;
+    animation-delay: calc(var(--i)*0.03s);
+}
+@keyframes animate
+{
+    0%,100%
+    {
+        transform: rotate(calc(var(--i)*var(--rot))) translate(-50px) scale(0);
+    }
+    50%
+    {
+        transform: rotate(calc(var(--i)*var(--rot))) translate(-50px) scale(1);
+    }
+}
+</style>
+<body>
+    <div class="circle" data-dots="25"></div>
+	<script src="./script.js"></script>
+
+<script>
+	const circle = document.querySelector(".circle");
+let dots = circle.getAttribute("data-dots");
+let rotate = 360 / dots;
+points = "";
+for (let i = 0; i < dots; i++) {
+    points+=`<span class="point" style="--i: ${i}; --rot: ${rotate}deg;"></span>`
+}
+circle.innerHTML = points;
+</script>
+
+</body>
+</html>
